@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System - Tourism Travels</title>
+    <link rel="stylesheet" href="styles/booking.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script defer src="scripts/booking.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tourism Travels Booking</h1>
+    </header>
+    
+    <main id="app">
+        <section class="filters">
+            <h2>Filter Options</h2>
+            <div class="filter-group">
+                <label for="price">Price Range:</label>
+                <select id="price" v-model="filters.price">
+                    <option value="all">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="amenities">Amenities:</label>
+                <select id="amenities" v-model="filters.amenities">
+                    <option value="all">All</option>
+                    <option value="wifi">WiFi</option>
+                    <option value="pool">Pool</option>
+                    <option value="spa">Spa</option>
+                </select>
+            </div>
+            <button @click="applyFilters">Apply Filters</button>
+        </section>
+
+        <section class="booking-list">
+            <h2>Available Options</h2>
+            <ul>
+                <li v-for="option in filteredOptions" :key="option.id">
+                    <h3>{{ option.name }}</h3>
+                    <p>Price: {{ option.price }}</p>
+                    <p>Amenities: {{ option.amenities.join(', ') }}</p>
+                    <button @click="bookOption(option.id)">Book Now</button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="flights">
+            <h2>Flight/Train Options</h2>
+            <button @click="fetchFlights">Search Flights/Trains</button>
+            <ul>
+                <li v-for="flight in flights" :key="flight.id">
+                    <h3>{{ flight.name }}</h3>
+                    <p>Price: {{ flight.price }}</p>
+                    <button @click="bookFlight(flight.id)">Book Now</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Tourism Travels. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                filters: {
+                    price: 'all',
+                    amenities: 'all'
+                },
+                options: [
+                    { id: 1, name: 'Hotel A', price: 'low', amenities: ['WiFi'] },
+                    { id: 2, name: 'Resort B', price: 'high', amenities: ['Pool', 'Spa'] },
+                    { id: 3, name: 'Tour C', price: 'medium', amenities: ['WiFi', 'Pool'] }
+                ],
+                flights: []
+            },
+            computed: {
+                filteredOptions() {
+                    return this.options.filter(option => {
+                        const priceMatch = this.filters.price === 'all' || option.price === this.filters.price;
+                        const amenitiesMatch = this.filters.amenities === 'all' || option.amenities.includes(this.filters.amenities);
+                        return priceMatch && amenitiesMatch;
+                    });
+                }
+            },
+            methods: {
+                applyFilters() {
+                    // Logic to filter options based on selected filters
+                },
+                bookOption(id) {
+                    alert('Booked ' + id);
+                },
+                async fetchFlights() {
+                    try {
+                        const response = await axios.get('https://api.skyscanner.net/apiservices/...'); // Skyscanner API placeholder
+                        this.flights = response.data;
+                    } catch (error) {
+                        console.error("Error fetching flight data");
+                    }
+                },
+                bookFlight(id) {
+                    alert('Booked flight/train ' + id);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
