@@ -1,0 +1,152 @@
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+header {
+  background-color: #e9ecef;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #e9ecef;
+  padding: 10px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #0056b3;
+}
+
+/* Styling for the filters section */
+.filters {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h2 {
+  margin-top: 0;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the booking list */
+.booking-list {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-list li {
+  border-bottom: 1px solid #ced4da;
+  padding: 15px 0;
+}
+
+.booking-list li:last-child {
+  border-bottom: none;
+}
+
+.booking-list h3 {
+  margin: 0;
+}
+
+.booking-list p {
+  margin: 5px 0;
+}
+
+.booking-list button {
+  margin-top: 10px;
+  background-color: #28a745;
+}
+
+.booking-list button:hover {
+  background-color: #218838;
+}
+
+/* Styling for the flights section */
+.flights {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.flights h2 {
+  margin-top: 0;
+}
+
+.flights button {
+  background-color: #dc3545;
+}
+
+.flights button:hover {
+  background-color: #c82333;
+}
+
+.flights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.flights li {
+  border-bottom: 1px solid #ced4da;
+  padding: 15px 0;
+}
+
+.flights li:last-child {
+  border-bottom: none;
+}
+
+.flights h3 {
+  margin: 0;
+}
+
+.flights p {
+  margin: 5px 0;
+}
